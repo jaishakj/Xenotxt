@@ -10,12 +10,16 @@ const Header = () => {
           <h1 className="text-xl md:text-3xl font-pixel text-primary neon-text tracking-wide">XENOTXT</h1>
         </Link>
         <div className="flex space-x-4">
-          <button className="bg-muted hover:bg-muted/80 text-xs font-pixel px-3 py-1 rounded pixel-corners transition">
-            LOGIN
-          </button>
-          <button className="bg-primary text-primary-foreground hover:bg-primary/80 text-xs font-pixel px-3 py-1 rounded pixel-corners transition">
-            SIGNUP
-          </button>
+          <Link to="/login">
+            <button className="bg-muted hover:bg-muted/80 text-xs font-pixel px-3 py-1 rounded pixel-corners transition">
+              LOGIN
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-primary text-primary-foreground hover:bg-primary/80 text-xs font-pixel px-3 py-1 rounded pixel-corners transition">
+              SIGNUP
+            </button>
+          </Link>
         </div>
       </div>
     </header>

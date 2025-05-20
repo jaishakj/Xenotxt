@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Thread from "./pages/Thread";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -25,6 +27,8 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/category/:categoryId" element={<Category />} />
             <Route path="/thread/:threadId" element={<Thread />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
