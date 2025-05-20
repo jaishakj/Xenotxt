@@ -174,7 +174,7 @@ const mockPosts: Post[] = [
     id: 'post3',
     threadId: 'thread1',
     author: 'BYTECODER',
-    content: 'The real question is when we'll see commercial applications beyond specialized research. I give it another decade before we see quantum computing impacting everyday encryption.',
+    content: 'The real question is when we\'ll see commercial applications beyond specialized research. I give it another decade before we see quantum computing impacting everyday encryption.',
     createdAt: new Date('2023-05-16'),
     upvotes: 8,
     isOriginalPost: false
@@ -192,7 +192,7 @@ const mockPosts: Post[] = [
     id: 'post5',
     threadId: 'thread4',
     author: 'PIXELMASTER',
-    content: 'The resurgence of pixel art games has been incredible. What are your favorite modern retro-style games? I've been obsessed with Hyper Light Drifter lately - the art direction is simply stunning.',
+    content: 'The resurgence of pixel art games has been incredible. What are your favorite modern retro-style games? I\'ve been obsessed with Hyper Light Drifter lately - the art direction is simply stunning.',
     createdAt: new Date('2023-05-18'),
     upvotes: 56,
     isOriginalPost: true
