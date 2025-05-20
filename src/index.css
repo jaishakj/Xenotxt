@@ -1,92 +1,41 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 135 100% 54%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 0%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 65%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 135 100% 54%;
+    --input: 240 5% 12%;
+    --ring: 135 100% 54%;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.25rem;
   }
 }
 
@@ -94,8 +43,363 @@
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
+@layer components {
+  .pixel-corners {
+    clip-path: polygon(
+      0px 4px,
+      4px 0px,
+      calc(100% - 4px) 0px,
+      100% 4px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      4px 100%,
+      0px calc(100% - 4px)
+    );
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 5px theme('colors.primary.DEFAULT'), 
+                0 0 10px theme('colors.primary.DEFAULT');
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 5px theme('colors.primary.DEFAULT'), 
+                 0 0 10px theme('colors.primary.DEFAULT');
+  }
+  
+  .secondary-neon-text {
+    text-shadow: 0 0 5px theme('colors.secondary.DEFAULT'), 
+                 0 0 10px theme('colors.secondary.DEFAULT');
+  }
+  
+  .accent-neon-text {
+    text-shadow: 0 0 5px theme('colors.accent.DEFAULT'), 
+                 0 0 10px theme('colors.accent.DEFAULT');
+  }
+  
+  .neon-hover {
+    @apply transition-all duration-200;
+  }
+  
+  .neon-hover:hover {
+    @apply neon-border scale-105;
+  }
+  
+  .scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+  
+  .crt {
+    animation: textShadow 1.6s infinite;
+  }
+  
+  .glitch {
+    position: relative;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+  }
+  
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim2 2.5s infinite linear alternate-reverse;
+  }
+  
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(42px, 9999px, 44px, 0);
+    }
+    5% {
+      clip: rect(12px, 9999px, 59px, 0);
+    }
+    10% {
+      clip: rect(48px, 9999px, 29px, 0);
+    }
+    15.0% {
+      clip: rect(42px, 9999px, 73px, 0);
+    }
+    20% {
+      clip: rect(63px, 9999px, 27px, 0);
+    }
+    25% {
+      clip: rect(34px, 9999px, 55px, 0);
+    }
+    30.0% {
+      clip: rect(86px, 9999px, 73px, 0);
+    }
+    35% {
+      clip: rect(20px, 9999px, 20px, 0);
+    }
+    40% {
+      clip: rect(26px, 9999px, 60px, 0);
+    }
+    45% {
+      clip: rect(25px, 9999px, 66px, 0);
+    }
+    50% {
+      clip: rect(57px, 9999px, 98px, 0);
+    }
+    55.0% {
+      clip: rect(5px, 9999px, 46px, 0);
+    }
+    60.0% {
+      clip: rect(82px, 9999px, 31px, 0);
+    }
+    65% {
+      clip: rect(54px, 9999px, 27px, 0);
+    }
+    70% {
+      clip: rect(28px, 9999px, 99px, 0);
+    }
+    75% {
+      clip: rect(45px, 9999px, 69px, 0);
+    }
+    80% {
+      clip: rect(23px, 9999px, 85px, 0);
+    }
+    85.0% {
+      clip: rect(54px, 9999px, 84px, 0);
+    }
+    90% {
+      clip: rect(45px, 9999px, 47px, 0);
+    }
+    95% {
+      clip: rect(37px, 9999px, 20px, 0);
+    }
+    100% {
+      clip: rect(4px, 9999px, 91px, 0);
+    }
+  }
+  
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(65px, 9999px, 100px, 0);
+    }
+    5% {
+      clip: rect(52px, 9999px, 74px, 0);
+    }
+    10% {
+      clip: rect(79px, 9999px, 85px, 0);
+    }
+    15.0% {
+      clip: rect(75px, 9999px, 5px, 0);
+    }
+    20% {
+      clip: rect(67px, 9999px, 61px, 0);
+    }
+    25% {
+      clip: rect(14px, 9999px, 79px, 0);
+    }
+    30.0% {
+      clip: rect(1px, 9999px, 66px, 0);
+    }
+    35% {
+      clip: rect(86px, 9999px, 30px, 0);
+    }
+    40% {
+      clip: rect(23px, 9999px, 98px, 0);
+    }
+    45% {
+      clip: rect(85px, 9999px, 72px, 0);
+    }
+    50% {
+      clip: rect(71px, 9999px, 75px, 0);
+    }
+    55.0% {
+      clip: rect(2px, 9999px, 48px, 0);
+    }
+    60.0% {
+      clip: rect(30px, 9999px, 16px, 0);
+    }
+    65% {
+      clip: rect(59px, 9999px, 50px, 0);
+    }
+    70% {
+      clip: rect(41px, 9999px, 62px, 0);
+    }
+    75% {
+      clip: rect(2px, 9999px, 82px, 0);
+    }
+    80% {
+      clip: rect(47px, 9999px, 73px, 0);
+    }
+    85.0% {
+      clip: rect(3px, 9999px, 27px, 0);
+    }
+    90% {
+      clip: rect(26px, 9999px, 55px, 0);
+    }
+    95% {
+      clip: rect(42px, 9999px, 97px, 0);
+    }
+    100% {
+      clip: rect(38px, 9999px, 49px, 0);
+    }
+  }
+  
+  @keyframes textShadow {
+    0% {
+      text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    5% {
+      text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    10% {
+      text-shadow: 0.02956275843481219px 0 1px rgba(0,30,255,0.5), -0.02956275843481219px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    15% {
+      text-shadow: 0.40218538552878136px 0 1px rgba(0,30,255,0.5), -0.40218538552878136px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    20% {
+      text-shadow: 3.4794037899852017px 0 1px rgba(0,30,255,0.5), -3.4794037899852017px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    25% {
+      text-shadow: 1.6125630401149584px 0 1px rgba(0,30,255,0.5), -1.6125630401149584px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    30% {
+      text-shadow: 0.7015590085143956px 0 1px rgba(0,30,255,0.5), -0.7015590085143956px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    35% {
+      text-shadow: 3.896914047650351px 0 1px rgba(0,30,255,0.5), -3.896914047650351px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    40% {
+      text-shadow: 3.870905614848819px 0 1px rgba(0,30,255,0.5), -3.870905614848819px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    45% {
+      text-shadow: 2.231056963361899px 0 1px rgba(0,30,255,0.5), -2.231056963361899px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    50% {
+      text-shadow: 0.08084290417898504px 0 1px rgba(0,30,255,0.5), -0.08084290417898504px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    55% {
+      text-shadow: 2.3758461067427543px 0 1px rgba(0,30,255,0.5), -2.3758461067427543px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    60% {
+      text-shadow: 2.202193051050636px 0 1px rgba(0,30,255,0.5), -2.202193051050636px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    65% {
+      text-shadow: 2.8638780614874975px 0 1px rgba(0,30,255,0.5), -2.8638780614874975px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    70% {
+      text-shadow: 0.48874025155497314px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    75% {
+      text-shadow: 1.8948491305757957px 0 1px rgba(0,30,255,0.5), -1.8948491305757957px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    80% {
+      text-shadow: 0.0833037308038857px 0 1px rgba(0,30,255,0.5), -0.0833037308038857px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    85% {
+      text-shadow: 0.09769827255241735px 0 1px rgba(0,30,255,0.5), -0.09769827255241735px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    90% {
+      text-shadow: 3.443339761481782px 0 1px rgba(0,30,255,0.5), -3.443339761481782px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    95% {
+      text-shadow: 2.1841838852799786px 0 1px rgba(0,30,255,0.5), -2.1841838852799786px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    100% {
+      text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+  }
+  
+  .pixel-border {
+    border-width: 4px;
+    border-style: solid;
+    border-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0H8V8H0V0ZM1 1V7H7V1H1Z' fill='%2339FF14'/%3E%3C/svg%3E%0A") 2;
+  }
+  
+  .pixel-button {
+    background-color: theme('colors.primary.DEFAULT');
+    color: black;
+    padding: 0.5rem 1rem;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    position: relative;
+    box-shadow: 0 6px 0 #0a730a;
+  }
+  
+  .pixel-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #0a730a;
+  }
+  
+  .pixel-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #0a730a;
+  }
+  
+  .pixel-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+  }
+  
+  .pixel-button:hover::after {
+    transform: translateY(0);
+  }
+  
+  .upvote-btn, .downvote-btn {
+    @apply transition-all duration-200;
+  }
+  
+  .upvote-btn:active, .downvote-btn:active {
+    @apply scale-90;
+  }
+  
+  .blink-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 }
